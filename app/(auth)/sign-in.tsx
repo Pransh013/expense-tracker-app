@@ -14,6 +14,8 @@ import { styles } from "@/styles/auth.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { theme } from "@/constants";
 import { Image } from "expo-image";
+import { useGoogleAuth } from "@/hooks/useGoogleAuth";
+import { GoogleAuthButton } from "@/components/GoogleAuthButton";
 
 type ClerkError = {
   status: number;
@@ -32,6 +34,7 @@ type FormData = {
 
 export default function SignInScreen() {
   const { isLoaded, signIn, setActive } = useSignIn();
+  const { handleGoogleAuth } = useGoogleAuth();
   const router = useRouter();
 
   const [formData, setFormData] = useState<FormData>({
@@ -74,6 +77,17 @@ export default function SignInScreen() {
       handleError(err as ClerkError);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const onGooglePress = async () => {
+    if (!isLoaded) return;
+    setError(null);
+    setIsLoading(true);
+    try {
+      await handleGoogleAuth(setActive);
+    } catch (err) {
+      handleError(err as ClerkError);
     }
   };
 
@@ -134,6 +148,8 @@ export default function SignInScreen() {
               {isLoading ? "Signing In..." : "Sign In"}
             </Text>
           </TouchableOpacity>
+
+          <GoogleAuthButton onPress={onGooglePress} disabled={isLoading} />
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>Don&apos;t have an account?</Text>

@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
   },
   illustration: {
-    width: 300,
-    height: 310,
+    width: 260,
+    height: 260,
     resizeMode: "contain",
     marginHorizontal: "auto",
   },
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   input: {
     backgroundColor: theme.white,
     borderRadius: 12,
-    padding: 15,
+    padding: 14,
     marginBottom: 16,
     borderWidth: 1,
     borderColor: theme.border,
@@ -43,10 +43,9 @@ export const styles = StyleSheet.create({
   button: {
     backgroundColor: theme.primary,
     borderRadius: 12,
-    padding: 16,
+    padding: 15,
     alignItems: "center",
     marginTop: 10,
-    marginBottom: 20,
   },
   buttonDisabled: {
     opacity: 0.7,
@@ -110,5 +109,37 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     flex: 1,
     fontSize: 14,
+  },
+  divider: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginVertical: 20,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: theme.border,
+  },
+  dividerText: {
+    color: theme.textLight,
+    marginHorizontal: 10,
+    fontSize: 14,
+  },
+  googleButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.background,
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: theme.border,
+    gap: 10,
+    marginBottom: 8,
+  },
+  googleButtonText: {
+    color: theme.text,
+    fontSize: 16,
+    fontWeight: "500",
   },
 });
