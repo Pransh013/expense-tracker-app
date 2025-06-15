@@ -18,11 +18,11 @@ import { Image } from "expo-image";
 type ClerkError = {
   status: number;
   clerkError: boolean;
-  errors: Array<{
+  errors: {
     code: string;
     message: string;
     longMessage: string;
-  }>;
+  }[];
 };
 
 type FormData = {
@@ -109,7 +109,7 @@ export default function SignUpScreen() {
           <View style={styles.container}>
             <Text style={styles.title}>Verify your email</Text>
             <Text style={styles.subtitle}>
-              We've sent a verification code to {formData.email}
+              We&apos;ve sent a verification code to {formData.email}
             </Text>
 
             {error ? (
@@ -160,6 +160,16 @@ export default function SignUpScreen() {
           <Text style={styles.title}>Create Account</Text>
           <Text style={styles.subtitle}>Sign up to get started</Text>
 
+          {error ? (
+            <View style={styles.errorBox}>
+              <Ionicons name="alert-circle" size={20} color={theme.expense} />
+              <Text style={styles.errorText}>{error}</Text>
+              <TouchableOpacity onPress={() => setError(null)}>
+                <Ionicons name="close" size={20} color={theme.textLight} />
+              </TouchableOpacity>
+            </View>
+          ) : null}
+
           <TextInput
             style={[styles.input, error && styles.errorInput]}
             autoCapitalize="none"
@@ -182,12 +192,6 @@ export default function SignUpScreen() {
             autoComplete="password"
             editable={!isLoading}
           />
-
-          {error && (
-            <View style={styles.errorBox}>
-              <Text style={styles.errorText}>{error}</Text>
-            </View>
-          )}
 
           <TouchableOpacity
             style={[styles.button, isLoading && styles.buttonDisabled]}
