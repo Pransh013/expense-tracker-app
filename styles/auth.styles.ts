@@ -1,0 +1,114 @@
+import { StyleSheet } from "react-native";
+import { theme } from "@/constants";
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: theme.background,
+    padding: 20,
+    justifyContent: "center",
+  },
+  illustration: {
+    width: 300,
+    height: 310,
+    resizeMode: "contain",
+    marginHorizontal: "auto",
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: theme.text,
+    marginVertical: 10,
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: 18,
+    color: theme.text,
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  input: {
+    backgroundColor: theme.white,
+    borderRadius: 12,
+    padding: 15,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: theme.border,
+    fontSize: 16,
+    color: theme.text,
+  },
+  errorInput: {
+    borderColor: theme.expense,
+  },
+  button: {
+    backgroundColor: theme.primary,
+    borderRadius: 12,
+    padding: 16,
+    alignItems: "center",
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  buttonDisabled: {
+    opacity: 0.7,
+  },
+  buttonText: {
+    color: theme.white,
+    fontSize: 18,
+    fontWeight: "600",
+  },
+  footer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 8,
+  },
+  footerText: {
+    color: theme.text,
+    fontSize: 16,
+  },
+  link: {
+    textDecorationLine: "underline",
+  },
+  linkText: {
+    color: theme.primary,
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  verificationTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: theme.text,
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  verificationInput: {
+    backgroundColor: theme.white,
+    borderRadius: 12,
+    padding: 15,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: theme.border,
+    fontSize: 16,
+    color: theme.text,
+    width: "100%",
+    textAlign: "center",
+    letterSpacing: 1.5,
+  },
+  errorBox: {
+    backgroundColor: "#FFE5E5",
+    padding: 12,
+    borderRadius: 8,
+    borderLeftWidth: 4,
+    borderLeftColor: theme.expense,
+    marginBottom: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+  },
+  errorText: {
+    color: theme.text,
+    marginLeft: 8,
+    flex: 1,
+    fontSize: 14,
+  },
+});
