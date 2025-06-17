@@ -73,13 +73,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
   },
-  verificationTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: theme.text,
-    marginBottom: 20,
-    textAlign: "center",
-  },
   verificationInput: {
     backgroundColor: theme.white,
     borderRadius: 12,

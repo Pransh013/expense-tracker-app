@@ -14,7 +14,7 @@ import { styles } from "@/styles/auth.styles";
 import { Ionicons } from "@expo/vector-icons";
 import { theme } from "@/constants";
 import { Image } from "expo-image";
-import { useGoogleAuth } from "@/hooks/useGoogleAuth";
+import { useGoogleAuth, useWarmUpBrowser } from "@/hooks/useGoogleAuth";
 import { GoogleAuthButton } from "@/components/GoogleAuthButton";
 
 type ClerkError = {
@@ -36,6 +36,7 @@ export default function SignInScreen() {
   const { isLoaded, signIn, setActive } = useSignIn();
   const { handleGoogleAuth } = useGoogleAuth();
   const router = useRouter();
+  useWarmUpBrowser();
 
   const [formData, setFormData] = useState<FormData>({
     email: "",
@@ -45,7 +46,6 @@ export default function SignInScreen() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleError = (err: ClerkError) => {
-    console.error(JSON.stringify(err, null, 2));
     setError(
       err.errors?.[0]?.longMessage || "Something went wrong. Please try again."
     );
@@ -85,7 +85,7 @@ export default function SignInScreen() {
     setError(null);
     setIsLoading(true);
     try {
-      await handleGoogleAuth(setActive);
+      await handleGoogleAuth();
     } catch (err) {
       handleError(err as ClerkError);
     }
