@@ -16,22 +16,7 @@ import { theme } from "@/constants";
 import { Image } from "expo-image";
 import { useGoogleAuth, useWarmUpBrowser } from "@/hooks/useGoogleAuth";
 import { GoogleAuthButton } from "@/components/GoogleAuthButton";
-
-type ClerkError = {
-  status: number;
-  clerkError: boolean;
-  errors: {
-    code: string;
-    message: string;
-    longMessage: string;
-  }[];
-};
-
-type FormData = {
-  email: string;
-  password: string;
-  code: string;
-};
+import { ClerkError, SignUpForm } from "@/types";
 
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();
@@ -39,7 +24,7 @@ export default function SignUpScreen() {
   const router = useRouter();
   useWarmUpBrowser();
 
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<SignUpForm>({
     email: "",
     password: "",
     code: "",
@@ -54,7 +39,7 @@ export default function SignUpScreen() {
     );
   };
 
-  const updateFormData = (field: keyof FormData, value: string) => {
+  const updateFormData = (field: keyof SignUpForm, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     setError(null);
   };

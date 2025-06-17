@@ -71,4 +71,110 @@ export const styles = StyleSheet.create({
     shadowRadius: 2,
     elevation: 1,
   },
+  summaryContainer: {
+    padding: 20,
+    backgroundColor: "#fff",
+  },
+  balanceCard: {
+    backgroundColor: "#F5F5F5",
+    padding: 20,
+    borderRadius: 12,
+    marginBottom: 20,
+  },
+  balanceLabel: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 8,
+  },
+  balanceAmount: {
+    fontSize: 32,
+    fontWeight: "700",
+  },
+  statsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: 12,
+  },
+  statCard: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#F5F5F5",
+    padding: 16,
+    borderRadius: 12,
+    gap: 12,
+  },
+  iconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    fontSize: 20,
+    fontWeight: "600",
+  },
+  statLabel: {
+    fontSize: 14,
+    color: "#666",
+    marginBottom: 4,
+  },
+  statAmount: {
+    fontSize: 18,
+    fontWeight: "600",
+  },
+  expenseContainer: {
+    padding: 20,
+    backgroundColor: "#fff",
+    flex: 1,
+  },
+  expenseHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "600",
+  },
+  viewAll: {
+    color: "#007AFF",
+    fontSize: 14,
+  },
+  emptyState: {
+    alignItems: "center",
+    padding: 20,
+    flex: 1,
+    justifyContent: "center",
+  },
+  emptyText: {
+    color: "#666",
+    marginTop: 8,
+  },
+  transactionItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "#F5F5F5",
+  },
+  transactionInfo: {
+    flex: 1,
+  },
+  category: {
+    fontSize: 16,
+    fontWeight: "500",
+    marginBottom: 4,
+  },
+  date: {
+    fontSize: 14,
+    color: "#666",
+  },
+  amount: {
+    fontSize: 16,
+    fontWeight: "600",
+  },
 });
