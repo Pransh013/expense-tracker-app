@@ -24,14 +24,14 @@ export default function AuthRoutesLayout() {
         name="sign-in"
         options={{
           title: "Sign In",
-          animation: "fade",
+          animation: "slide_from_right",
         }}
       />
       <Stack.Screen
         name="sign-up"
         options={{
           title: "Sign Up",
-          animation: "fade",
+          animation: "slide_from_right",
         }}
       />
     </Stack>

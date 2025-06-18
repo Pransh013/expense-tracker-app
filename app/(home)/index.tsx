@@ -1,30 +1,47 @@
-import { View } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import { Header } from "@/components/Header";
 import { styles } from "@/styles/home.styles";
 import { ExpenseSummary } from "@/components/ExpenseSummary";
-import { useTransactions } from "@/hooks/useTransactions";
 import { RecentExpenses } from "@/components/RecentExpenses";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import { useApiClient } from "@/lib/api";
+import { Transaction, TransactionSummary } from "@/lib/types";
 
 export default function HomeScreen() {
-  const { getSummary, getTransactions, summary, transactions, loading } =
-    useTransactions();
-  const initialLoadDone = useRef(false);
+  const [loading, setLoading] = useState(false);
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [summary, setSummary] = useState<TransactionSummary | null>(null);
+  const api = useApiClient();
 
   useEffect(() => {
-    const fetchData = async () => {
-      if (loading || initialLoadDone.current) return;
-
+    const loadData = async () => {
       try {
-        initialLoadDone.current = true;
-        await Promise.all([getSummary(), getTransactions()]);
-      } catch (error) {
-        initialLoadDone.current = false;
+        setLoading(true);
+        const [transactionsResult, summaryResult] = await Promise.all([
+          api.transactions.getAll(),
+          api.transactions.getSummary(),
+        ]);
+        setTransactions(transactionsResult.transactions);
+        setSummary(summaryResult.summary);
+      } finally {
+        setLoading(false);
       }
     };
+    loadData();
+  }, [api]);
 
-    fetchData();
-  }, [getSummary, getTransactions, loading]);
+  if (loading) {
+    return (
+      <View
+        style={[
+          styles.container,
+          { justifyContent: "center", alignItems: "center" },
+        ]}
+      >
+        <ActivityIndicator size="large" color="#007AFF" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>

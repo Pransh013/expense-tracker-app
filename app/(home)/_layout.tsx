@@ -10,11 +10,31 @@ export default function Layout() {
   if (!isSignedIn) {
     return <Redirect href={"/sign-in"} />;
   }
+
   return (
     <Stack
       screenOptions={{
         headerShown: false,
+        animation: "slide_from_right",
+        contentStyle: { backgroundColor: "white" },
+        gestureEnabled: true,
+        gestureDirection: "horizontal",
       }}
-    />
+    >
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "Home",
+          animation: "fade",
+        }}
+      />
+      <Stack.Screen
+        name="create"
+        options={{
+          title: "Add Transaction",
+          animation: "slide_from_right",
+        }}
+      />
+    </Stack>
   );
 }

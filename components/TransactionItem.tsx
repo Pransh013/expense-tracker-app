@@ -1,5 +1,5 @@
 import { styles } from "@/styles/home.styles";
-import { ExpenseType, Transaction } from "@/types";
+import { ExpenseType, Transaction } from "@/lib/types";
 import { Text, View } from "react-native";
 
 const TransactionItem = ({ transaction }: { transaction: Transaction }) => (

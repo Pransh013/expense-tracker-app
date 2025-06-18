@@ -16,7 +16,7 @@ import { theme } from "@/constants";
 import { Image } from "expo-image";
 import { useGoogleAuth, useWarmUpBrowser } from "@/hooks/useGoogleAuth";
 import { GoogleAuthButton } from "@/components/GoogleAuthButton";
-import { ClerkError, SignUpForm } from "@/types";
+import { ClerkError, SignUpForm } from "@/lib/types";
 
 export default function SignUpScreen() {
   const { isLoaded, signUp, setActive } = useSignUp();

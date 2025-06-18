@@ -1,5 +1,5 @@
 import { styles } from "@/styles/home.styles";
-import { TransactionSummary } from "@/types";
+import { TransactionSummary } from "@/lib/types";
 import { View, Text } from "react-native";
 
 export const ExpenseSummary = ({

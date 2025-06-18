@@ -16,7 +16,7 @@ import { theme } from "@/constants";
 import { Image } from "expo-image";
 import { useGoogleAuth, useWarmUpBrowser } from "@/hooks/useGoogleAuth";
 import { GoogleAuthButton } from "@/components/GoogleAuthButton";
-import { ClerkError, SignInForm } from "@/types";
+import { ClerkError, SignInForm } from "@/lib/types";
 
 export default function SignInScreen() {
   const { isLoaded, signIn, setActive } = useSignIn();

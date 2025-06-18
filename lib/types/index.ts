@@ -1,3 +1,6 @@
+import { z } from "zod";
+import { createTransactionSchema } from "../schema";
+
 export type ClerkError = {
   status: number;
   clerkError: boolean;
@@ -42,10 +45,4 @@ export type TransactionSummary = {
   balance: number;
 };
 
-export type CreateTransactionData = {
-  amount: number;
-  type: ExpenseType;
-  category: string;
-  date: Date;
-  description?: string;
-};
+export type CreateTransaction = z.infer<typeof createTransactionSchema>
